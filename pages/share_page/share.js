@@ -58,6 +58,8 @@ Page({
           uploaderList: uploaderList,
           uploaderNum: uploaderList.length,
         })
+        console.log(uploaderList)
+        // console.log(uploaderNum)
       }
     })
   },
