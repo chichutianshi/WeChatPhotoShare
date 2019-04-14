@@ -59,7 +59,7 @@ Page({
           uploaderNum: uploaderList.length,
         })
         console.log(uploaderList)
-        // console.log(uploaderNum)
+        console.log(this.uploaderNum)
       }
     })
   },
