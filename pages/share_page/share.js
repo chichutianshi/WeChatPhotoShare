@@ -11,6 +11,8 @@ Page({
     max: 300,
     topic: '写下你的想法，和大家一起分享吧！',
     thirdSessionKey: '',
+    introduce: '',
+    location: '',
   },
   // 删除图片
   clearImg: function(e) {
@@ -70,38 +72,48 @@ Page({
     let uploaderList = that.data.uploaderList
     let uploaderNum = that.data.uploaderNum
     let thirdSessionKey = that.data.thirdSessionKey
-    let photoId
-    console.log(thirdSessionKey)
+    let introduce = that.data.introduce
+    console.log('thirdSessionKey:' + thirdSessionKey)
     console.log(uploaderList)
     console.log("uploaderNum:" + uploaderNum)
     for (let i = 0; i < uploaderNum; i++) {
-      //上传第一张图片
       if (i == 0) {
+        //上传第一张图片
         wx.uploadFile({
-          url: 'https://www.xqdiary.top/photoShare/fileCtrl/upPicture',
+          url: 'http://localhost:8080/fileCtrl/upPicture',
           filePath: uploaderList[i],
+          name: 'pic',
           header: {
             "Content-Type": "multipart/form-data",
           },
           formData: {
             'thirdSessionKey': thirdSessionKey,
+            'introduce': introduce
           },
           success: (res) => {
-            if (res.data.photoId != null && res.data.photoId != "") {
-              photoId = res.data.photoId
-              console.log(photoId)
-            } else {
+            var obj = JSON.parse(res.data)
+            if (obj["photoId"] != null && obj["photoId"] != "") {
 
+            } else {
+              wx.showToast({
+                title: '上传失败',
+                icon: 'none',
+                duration: 1500
+              })
+              return;
             }
           },
           fail: (resf) => {
             console.log("调用接口失败!")
+            return;
           },
         })
       } else {
+        //上传后续图片
         wx.uploadFile({
-          url: 'https://www.xqdiary.top/photoShare/fileCtrl/upPicture',
+          url: 'http://localhost:8080/fileCtrl/upPicture',
           filePath: uploaderList[i],
+          name: 'pic',
           header: {
             "Content-Type": "multipart/form-data",
           },
@@ -109,11 +121,31 @@ Page({
             "photoId": photoId
           },
           success: (res1) => {
-
+            var obj = JSON.parse(res1.data)
+            console.log(obj["status"])
+            if (obj["status"] == 1) {
+              console.log("第" + i + "上张传ok!")
+            } else {
+              wx.showToast({
+                title: '上传失败',
+                icon: 'none',
+                duration: 1500
+              })
+              return;
+            }
           },
+          fail: (res2) => {
+            console.log("调用接口失败!")
+            return;
+          }
         })
       }
     }
+    // wx.showToast({
+    //   title: '上传成功',
+    //   icon: 'success',
+    //   duration: 1500
+    // })
 
   },
 
@@ -199,13 +231,15 @@ Page({
   inputs: function(e) {
     // 获取输入框的内容
     var value = e.detail.value;
+    // console.log(value)
     // 获取输入框内容的长度
     var len = parseInt(value.length);
 
     if (len > this.data.max) return;
     // 当输入框内容的长度大于最大长度限制（max)时，终止setData()的执行
     this.setData({
-      currentWordNumber: len //当前字数  
+      currentWordNumber: len, //当前字数  
+      introduce: value
     });
 
   }
