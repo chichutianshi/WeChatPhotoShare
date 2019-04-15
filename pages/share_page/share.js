@@ -13,6 +13,7 @@ Page({
     thirdSessionKey: '',
     introduce: '',
     location: '',
+    photoId: ''
   },
   // 删除图片
   clearImg: function(e) {
@@ -65,89 +66,56 @@ Page({
       }
     })
   },
-
-  //提交照片到服务器
-  submit: function(e) {
-    let that = this;
-    let uploaderList = that.data.uploaderList
+ //提交照片到服务器
+  uploadpic: function(e) {
+    var that = this
+    let i = e.i ? e.i : 0
     let uploaderNum = that.data.uploaderNum
-    let thirdSessionKey = that.data.thirdSessionKey
-    let introduce = that.data.introduce
-    console.log('thirdSessionKey:' + thirdSessionKey)
-    console.log(uploaderList)
-    console.log("uploaderNum:" + uploaderNum)
-    for (let i = 0; i < uploaderNum; i++) {
-      if (i == 0) {
-        //上传第一张图片
-        wx.uploadFile({
-          url: 'http://localhost:8080/fileCtrl/upPicture',
-          filePath: uploaderList[i],
-          name: 'pic',
-          header: {
-            "Content-Type": "multipart/form-data",
-          },
-          formData: {
-            'thirdSessionKey': thirdSessionKey,
-            'introduce': introduce
-          },
-          success: (res) => {
-            var obj = JSON.parse(res.data)
-            if (obj["photoId"] != null && obj["photoId"] != "") {
+    wx.uploadFile({
+      url: 'http://localhost:8080/fileCtrl/upPicture',
+      filePath: that.data.uploaderList[i],
+      name: 'pic',
+      header: {
+        "Content-Type": "multipart/form-data",
+      },
+      formData: {
+        'thirdSessionKey': that.data.thirdSessionKey,
+        'introduce': that.data.introduce,
+        'photoId': that.data.photoId
+      },
+      success: (res) => {
+        var obj = JSON.parse(res.data)
+        if (obj["photoId"] != null && obj["photoId"] != "") {
+          that.setData({
+            photoId: obj["photoId"]
+          })
+          console.log("设置成功")
+        }
+      },
+      fail: (res) => {
 
-            } else {
-              wx.showToast({
-                title: '上传失败',
-                icon: 'none',
-                duration: 1500
-              })
-              return;
-            }
-          },
-          fail: (resf) => {
-            console.log("调用接口失败!")
-            return;
-          },
-        })
-      } else {
-        //上传后续图片
-        wx.uploadFile({
-          url: 'http://localhost:8080/fileCtrl/upPicture',
-          filePath: uploaderList[i],
-          name: 'pic',
-          header: {
-            "Content-Type": "multipart/form-data",
-          },
-          formData: {
-            "photoId": photoId
-          },
-          success: (res1) => {
-            var obj = JSON.parse(res1.data)
-            console.log(obj["status"])
-            if (obj["status"] == 1) {
-              console.log("第" + i + "上张传ok!")
-            } else {
-              wx.showToast({
-                title: '上传失败',
-                icon: 'none',
-                duration: 1500
-              })
-              return;
-            }
-          },
-          fail: (res2) => {
-            console.log("调用接口失败!")
-            return;
-          }
-        })
+      },
+      complete: () => {
+        i++
+        if (i == uploaderNum) {
+          wx.showToast({
+            title: '上传成功',
+            duration: 1500,
+            mask: 'false'
+          })
+          that.setData({
+            uploaderList: []
+          })
+        }
+        else
+        {
+          e.i=i
+          that.uploadpic(e)
+        }
       }
-    }
-    // wx.showToast({
-    //   title: '上传成功',
-    //   icon: 'success',
-    //   duration: 1500
-    // })
-
+    })
   },
+ 
 
   /**
    * 生命周期函数--监听页面加载

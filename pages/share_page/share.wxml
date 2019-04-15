@@ -35,7 +35,7 @@
       </view>
 
       <view class="btns">
-        <button class="btn_publish" bindtap='submit'>
+        <button class="btn_publish" bindtap='uploadpic'>
           发布
         </button>
         <button class="btn_cancel">
