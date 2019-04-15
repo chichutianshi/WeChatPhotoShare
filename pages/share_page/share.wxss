@@ -154,16 +154,12 @@ page {
 
 .btn_location {
   float: left;
-  margin-left: 10rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding-right: 15rpx;
   margin-top: 15rpx;
   margin-bottom: 15rpx;
-  font-size: 30rpx;
-  width: 18%;
+  width: 9%;
   height: 70rpx;
-  background-color: rgba(255, 176, 29, 0.884);
+  /* background-color: rgba(255, 176, 29, 0.884); */
 }
 
 .show_location {

@@ -72,7 +72,7 @@ Page({
           if (res.code) {
             //发起网络请求
             wx.request({
-              url: 'http://localhost:8080/WeChatlogin',
+              url: 'http://test.com:8080/WeChatlogin',
               data: {
                 code: res.code,
                 rawData: rawData

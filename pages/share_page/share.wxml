@@ -26,9 +26,10 @@
       </view>
 
       <view class="location">
-        <button class="btn_location">
+        <!-- <button class="btn_location">
           位置
-        </button>
+        </button> -->
+        <image class="btn_location" src='../../resources/location.png'></image>
         <textarea class="show_location" disabled='true' auto-height='false' placeholder="吉林省长春市朝阳区长春理工大学">
 
         </textarea>
