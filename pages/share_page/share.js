@@ -66,13 +66,13 @@ Page({
       }
     })
   },
- //提交照片到服务器
+  //提交照片到服务器
   uploadpic: function(e) {
     var that = this
     let i = e.i ? e.i : 0
     let uploaderNum = that.data.uploaderNum
     wx.uploadFile({
-      url: 'http://localhost:8080/fileCtrl/upPicture',
+      url: 'https://www.xqdiary.top/photoShare/fileCtrl/upPicture',
       filePath: that.data.uploaderList[i],
       name: 'pic',
       header: {
@@ -91,6 +91,9 @@ Page({
           })
           console.log("设置成功")
         }
+        if (obj["status"] == -1) {
+          console.log("faii")
+        }
       },
       fail: (res) => {
 
@@ -106,16 +109,14 @@ Page({
           that.setData({
             uploaderList: []
           })
-        }
-        else
-        {
-          e.i=i
+        } else {
+          e.i = i
           that.uploadpic(e)
         }
       }
     })
   },
- 
+
 
   /**
    * 生命周期函数--监听页面加载

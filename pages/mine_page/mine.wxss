@@ -22,4 +22,5 @@ page {
   float: right;
   margin-top: 10%;
   margin-right: 53%;
+  font-size: 65rpx;
 }

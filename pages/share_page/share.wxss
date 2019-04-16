@@ -29,6 +29,7 @@ page {
   margin-right: 10%;
   padding-top: 3%;
   box-sizing: border-box;
+  border-radius: 10rpx;
   background-color: white;
 }
 
@@ -124,6 +125,7 @@ page {
   overflow: hidden;
   position: relative;
   background-color: rgba(255, 255, 255, 0.863);
+  border-radius: 15rpx;
 }
 
 .currentWordNumber {

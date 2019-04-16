@@ -72,7 +72,7 @@ Page({
           if (res.code) {
             //发起网络请求
             wx.request({
-              url: 'http://test.com:8080/WeChatlogin',
+              url: 'https://www.xqdiary.top/photoShare/WeChatlogin',
               data: {
                 code: res.code,
                 rawData: rawData
