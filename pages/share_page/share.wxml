@@ -35,7 +35,7 @@
       <button class="btn_publish" bindtap='uploadpic'>
         发布
       </button>
-      <button class="btn_cancel">
+      <button class="btn_cancel" bindtap='clear'>
         取消
       </button>
     </view>

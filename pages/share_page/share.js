@@ -107,13 +107,23 @@ Page({
             mask: 'false'
           })
           that.setData({
-            uploaderList: []
+            uploaderList: [],
+            photoId: '',
+            introduce: ''
           })
+          console.log(that.data.photoId)
         } else {
           e.i = i
           that.uploadpic(e)
         }
       }
+    })
+  },
+  clear: function(e) {
+    let that = this
+    that.setData({
+      uploaderList: [],
+      introduce: ''
     })
   },
 
@@ -210,6 +220,5 @@ Page({
       currentWordNumber: len, //当前字数  
       introduce: value
     });
-
   }
 })
