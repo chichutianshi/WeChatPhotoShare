@@ -14,9 +14,10 @@
   </scroll-view>
 
   <view class="take_color">
-    <view class="describe">
+    <!-- <view class="describe">
       描述
-    </view>
+    </view> -->
+    <image class="flower" src='../../resources/flower_1.png' mode="widthFix"></image>
 
     <view class="conts">
       <textarea class="areas" placeholder="{{topic}}" maxlength="{{max}}" bindinput="inputs">

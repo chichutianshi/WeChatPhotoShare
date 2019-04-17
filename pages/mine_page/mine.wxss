@@ -15,12 +15,18 @@ page {
   border-radius: 50%;
   margin-left: 3%;
   margin-top: 3%;
+  /* border: solid 1rpx blue; */
+}
+
+.take_name{
+  /* border: solid 1rpx red; */
+  height: 120rpx;
+  width: 75%;
+  margin-left: 26%;
+  padding-top: 10%;
 }
 
 .btn_word {
-  height: 40%;
-  float: right;
-  margin-top: 10%;
-  margin-right: 53%;
-  font-size: 65rpx;
+  float: left;
+  font-size: 50rpx;
 }

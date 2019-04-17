@@ -3,6 +3,7 @@ page {
   /* background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255, 166, 0, 0.979)), to(rgb(255, 184, 53))); */
 }
 
+
 .whole {
   width: 100%;
   /* background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255, 166, 0, 0.979)), to(rgb(253, 209, 127))); */
@@ -62,7 +63,15 @@ page {
 .content {
   margin: 0 20rpx;
   text-align: justify;
+  width: 95%;
 }
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
 
 .item {
   background-color: #fff;
