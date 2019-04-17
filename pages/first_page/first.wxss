@@ -42,8 +42,7 @@ page {
   font-size: 38rpx;
   margin-left: 15rpx;
   width: 15%;
-  /* line-height: 150%; *//* text-align: center; */
-  /* border: 1px solid #ff9f0e; */
+  /* line-height: 150%; *//* text-align: center; *//* border: 1px solid #ff9f0e; */
   border-radius: 10rpx;
   display: flex;
   align-items: center;
@@ -65,7 +64,7 @@ page {
   text-align: justify;
 }
 
-.loadImg  {
+.item {
   background-color: #fff;
   margin: 1%;
   margin-bottom: 15rpx;
@@ -75,9 +74,15 @@ page {
   width: 100%;
   border-radius: 30rpx;
 }
-.loadImg .active{
-  opacity: 1
+
+.item.active {
+  opacity: 1;
 }
+
+.item.native {
+  opacity: 0;
+}
+
 .item-ava {
   width: 50rpx;
   height: 35rpx;
@@ -120,7 +125,7 @@ page {
   line-height: 27rpx;
 }
 
-.arrow{
+.arrow {
   margin-top: 1%;
   height: 90%;
   width: 60%;

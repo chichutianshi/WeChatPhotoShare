@@ -95,13 +95,10 @@ Page({
         })
       }
     })
-
     let note = this.data.note // 获取原数据
     for (let i in note) {
       // 设置监听回调事件，当元素 .loadImg{{i}},进入页面20px内就触发回调事件，设置图片为真正的图片，通过show控制
-      wx.createIntersectionObserver().relativeToViewport({
-        bottom: 20
-      }).observe('loadImg' + i, (ret) => {
+      wx.createIntersectionObserver().relativeToViewport().observe('.item-' + i, (ret) => {
         if (ret.intersectionRatio > 0) {
           note[i].show = true
         }

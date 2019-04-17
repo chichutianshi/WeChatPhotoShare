@@ -12,42 +12,52 @@
   <view class="content">
 
     <view class="left">
-      <block wx:for="{{note}}" wx:key="1">
-        <template is="item" data="{{...item}}" wx:if="{{index%2==0}}"></template>
+      <block wx:for="{{note}}" wx:key="">
+        <view class="item item-{{index}} {{item.show? 'active' : 'native'}}" wx:if="{{index%2==0}}">
+
+          <image class="item-img" src="{{item.url}}" mode="widthFix"></image>
+
+          <view class="item-title-box">
+            <navigator url="url" class="item-title">{{item.title}}</navigator>
+            <image class="arrow" src="../../resources/arrow下拉.png"></image>
+          </view>
+
+          <view class="name">
+            <image class="item-ava" src="{{item.avatar}}"></image>
+            <text class="name-title">{{item.name}}</text>
+
+            <view class="heart_">
+              <image class="heart" src="../../resources/heart.png"></image>
+              <text>{{item.heart_num}}</text>
+            </view>
+          </view>
+
+        </view>
       </block>
     </view>
     <view class="right">
-      <block wx:for="{{note}}" wx:key="1">
-        <template is="item" data="{{...item}}" wx:if="{{index%2==1}}"></template>
+      <block wx:for="{{note}}" wx:key="">
+        <view class="item item-{{index}} {{item.show? 'active' : 'native'}}" wx:if="{{index%2==1}}">
+
+          <image class="item-img" src="{{item.url}}" mode="widthFix"></image>
+
+          <view class="item-title-box">
+            <navigator url="url" class="item-title">{{item.title}}</navigator>
+            <image class="arrow" src="../../resources/arrow下拉.png"></image>
+          </view>
+
+          <view class="name">
+            <image class="item-ava" src="{{item.avatar}}"></image>
+            <text class="name-title">{{item.name}}</text>
+
+            <view class="heart_">
+              <image class="heart" src="../../resources/heart.png"></image>
+              <text>{{item.heart_num}}</text>
+            </view>
+          </view>
+
+        </view>
       </block>
     </view>
   </view>
-  <!--  下面是一个模块 -->
-  <template name="item">
-    <view class="loadImg  loadImg{{index}} {{show? 'active' : ''}}">
-
-      <image class="item-img" src="{{url}}" mode="widthFix"></image>
-      <view class="item-title-box">
-        <navigator url="url" class="item-title">{{title}}</navigator>
-        <image class="arrow" src="../../resources/arrow下拉.png"></image>
-      </view>
-
-      <view class="name">
-
-      
-        <image class="item-ava" src="{{avatar}}"></image>
-        <text class="name-title">{{name}}</text>
-
-        <view class="heart_">
-          <image class="heart" src="../../resources/heart.png"></image>
-          <text>{{heart_num}}</text>
-        </view>
-
-
-      </view>
-
-    </view>
-
-  </template>
-
 </view>

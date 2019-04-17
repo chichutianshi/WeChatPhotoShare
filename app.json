@@ -1,5 +1,5 @@
 {
-  "pages":[
+  "pages": [
     "pages/first_page/first",
     "pages/share_page/share",
     "pages/mine_page/mine",
@@ -36,6 +36,6 @@
     "navigationBarTextStyle": "white",
     "backgroundColor": "#eeeeee",
     "backgroundTextStyle": "light"
-    
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }
