@@ -5,12 +5,12 @@ Page({
    */
   data: {
     note: [{
-        name: '大脸猫爱吃鱼大脸猫爱吃鱼大脸猫爱吃鱼大脸猫爱吃鱼大脸猫爱吃鱼',
-        heart_num: '1',
+        instruction: '大脸猫爱吃鱼大脸猫爱吃鱼大脸猫爱吃鱼大脸猫爱吃鱼大脸猫爱吃鱼',
+        likeNum: '1',
         show: false,
         title: '你所不知道的红酒知识你所不知道的红酒知识你所不知道的红酒知识你所不知道的红酒知识你所不知道的红酒知识',
         url: 'http://f10.baidu.com/it/u=121654667,1482133440&fm=72',
-        avatar: 'http://img4.imgtn.bdimg.com/it/u=349345436,3394162868&fm=26&gp=0.jpg'
+        avatarURL: 'http://img4.imgtn.bdimg.com/it/u=349345436,3394162868&fm=26&gp=0.jpg'
       },
       {
         name: '大脸猫爱吃鱼',
@@ -18,7 +18,7 @@ Page({
         show: false,
         title: '你所不知道的红酒知识你所不知道的红酒知识你所不知道的红酒知识你所不知道的红酒知识你所不知道的红酒知识',
         url: 'http://img3.imgtn.bdimg.com/it/u=1417732605,3777474040&fm=26&gp=0.jpg',
-        avatar: 'http://img4.imgtn.bdimg.com/it/u=349345436,3394162868&fm=26&gp=0.jpg'
+        avatarURL: 'http://img4.imgtn.bdimg.com/it/u=349345436,3394162868&fm=26&gp=0.jpg'
       },
       {
         name: '大脸猫爱吃鱼',
@@ -26,7 +26,7 @@ Page({
         show: false,
         title: '你所不知道的红酒知识你所不知道的红酒知识你所不知道的红酒知识你所不知道的红酒知识你所不知道的红酒知识',
         url: 'http://img3.imgtn.bdimg.com/it/u=1417732605,3777474040&fm=26&gp=0.jpg',
-        avatar: 'http://img4.imgtn.bdimg.com/it/u=349345436,3394162868&fm=26&gp=0.jpg'
+        avatarURL: 'http://img4.imgtn.bdimg.com/it/u=349345436,3394162868&fm=26&gp=0.jpg'
       }, {
         name: '大脸猫爱吃鱼',
         heart_num: '4',
@@ -64,15 +64,19 @@ Page({
         show: false,
         title: '你所不知道的红酒知识你所不知道的红酒知识你所不知道的红酒知识你所不知道的红酒知识你所不知道的红酒知识',
         url: 'http://img2.imgtn.bdimg.com/it/u=1561660534,130168102&fm=26&gp=0.jpg',
-        avatar: 'http://img4.imgtn.bdimg.com/it/u=349345436,3394162868&fm=26&gp=0.jpg'
+        avatarURL: 'http://img4.imgtn.bdimg.com/it/u=349345436,3394162868&fm=26&gp=0.jpg'
       }
-    ]
+    ],
+    selectRow: 0,
+    // note: [],
+    thirdSessionKey: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    let that = this
     wx.getStorage({
       key: 'rawData',
       success: function(res) {
@@ -87,14 +91,50 @@ Page({
     wx.getStorage({
       key: 'thirdSessionKey',
       success: function(res) {
+        that.setData({
+          thirdSessionKey: res.data
+        })
         console.log(res.data)
       },
       fail: function(res) {
         wx.navigateTo({
           url: '../login_page/login',
         })
+      },
+      complete: function() {
+        // console.log(that.data.note)
+        if (that.data.note.length == 0) {
+          console.log("come in")
+          wx.request({
+            url: 'http://localhost:8080/loadPhotos',
+            data: {
+              selectRow: that.data.selectRow,
+              thirdSessionKey: ''
+            },
+            success: (res) => {
+              console.log(res.data)
+              that.setData({
+                note: res.data,
+                selectRow:that.data.selectRow+15
+              })
+              console.log(that.data.selectRow)
+            },
+
+            fail: (res) => {
+              console.log("请求失败!")
+            }
+          })
+        }
       }
     })
+
+
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function() {
     let note = this.data.note // 获取原数据
     for (let i in note) {
       // 设置监听回调事件，当元素 .loadImg{{i}},进入页面20px内就触发回调事件，设置图片为真正的图片，通过show控制
@@ -108,14 +148,6 @@ Page({
       })
     }
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
   /**
    * 生命周期函数--监听页面显示
    */

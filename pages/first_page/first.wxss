@@ -62,6 +62,7 @@ page {
 .content {
   margin: 0 20rpx;
   text-align: justify;
+  width: 95%
 }
 
 .item {
