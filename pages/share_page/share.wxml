@@ -17,7 +17,7 @@
     <!-- <view class="describe">
       描述
     </view> -->
-    <image class="flower" src='../../resources/flower_1.png' mode="widthFix"></image>
+    <image class="flower" src='../../resources/flower.png' mode="widthFix"></image>
 
     <view class="conts">
       <textarea class="areas" placeholder="{{topic}}" maxlength="{{max}}" bindinput="inputs">
