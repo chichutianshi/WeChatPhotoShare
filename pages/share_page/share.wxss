@@ -1,5 +1,7 @@
 page {
-  background-color: rgb(235, 233, 233);
+  /* background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255, 166, 0, 0.979)), 
+  to(rgb(255, 188, 63))); */
+  background-color: rgb(255, 184, 53);
 }
 
 
@@ -9,11 +11,13 @@ page {
 
 
 .share_top {
-  width: 100%;
+  width: 82%;
   height: 400rpx;
-  /* background-color: rgba(86, 102, 175, 0.897); */
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255, 166, 0, 0.979)), 
-  to(rgb(250, 180, 51)));
+  margin-left: 8%;
+  /* border: solid 1rpx red; */
+  border-radius: 10rpx;
+  padding-right: 1%;
+  background-color: white;
 }
 
 ::-webkit-scrollbar {
@@ -23,13 +27,11 @@ page {
 }
 
 .ui_uploader_cell {
-  width: 80%;
+  width: 100%;
   height: 600rpx;
-  margin-left: 10%;
-  margin-right: 10%;
   padding-top: 3%;
+  margin: 0 1%;
   box-sizing: border-box;
-  border-radius: 10rpx;
   background-color: white;
 }
 
@@ -97,14 +99,16 @@ page {
   width: 100%;
   height: 670rpx;
   margin-bottom: 0rpx;
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(250, 180, 51)), 
-  to(rgb(253, 209, 127)));
 }
 
-.describe {
+/* .describe {
   display: flex;
   align-items: center;
   justify-content: center;
+} */
+.flower{
+  width: 100%;
+  background-color: rgb(255, 184, 53);
 }
 
 .conts {
