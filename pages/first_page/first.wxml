@@ -13,8 +13,7 @@
 
     <view class="left">
       <block wx:for="{{note}}" wx:key="">
-        <view class="item item-{{index}} {{item.show? 'active' : 'native'}}" wx:if="{{index%2==0}}">
-
+        <view class="item" wx:if="{{index%2==0}}">
           <image class="item-img" src="{{item.photoURL}}" mode="widthFix"></image>
 
           <view class="item-title-box">
@@ -37,8 +36,7 @@
     </view>
     <view class="right">
       <block wx:for="{{note}}" wx:key="">
-        <view class="item item-{{index}} {{item.show? 'active' : 'native'}}" wx:if="{{index%2==1}}">
-
+        <view class="item" wx:if="{{index%2==1}}">
           <image class="item-img" src="{{item.photoURL}}" mode="widthFix"></image>
 
           <view class="item-title-box">

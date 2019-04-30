@@ -72,7 +72,7 @@ Page({
     let i = e.i ? e.i : 0
     let uploaderNum = that.data.uploaderNum
     wx.uploadFile({
-      url: 'https://www.xqdiary.top/photoShare/fileCtrl/upPicture',
+      url: 'http://localhost:8080/fileCtrl/upPicture',
       filePath: that.data.uploaderList[i],
       name: 'pic',
       header: {
@@ -81,7 +81,8 @@ Page({
       formData: {
         'thirdSessionKey': that.data.thirdSessionKey,
         'introduce': that.data.introduce,
-        'photoId': that.data.photoId
+        'photoId': that.data.photoId,
+        'categories':''
       },
       success: (res) => {
         var obj = JSON.parse(res.data)

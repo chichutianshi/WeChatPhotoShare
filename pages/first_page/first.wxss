@@ -85,14 +85,6 @@ page {
   border-radius: 30rpx;
 }
 
-.item.active {
-  opacity: 1;
-}
-
-.item.native {
-  opacity: 0;
-}
-
 .item-ava {
   width: 40rpx;
   height: 40rpx;
