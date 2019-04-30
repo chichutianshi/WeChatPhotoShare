@@ -28,10 +28,27 @@ Page({
     wx.getStorage({
       key: 'thirdSessionKey',
       success: function(res) {
-        that.setData({
-          thirdSessionKey: res.data
+        var temp = res.data;
+        wx.request({
+          url: 'http://localhost:8080/uuidLogin',
+          data:{
+            thirdSessionKey: temp
+          },
+          success: (res) => {
+            //console.log("状态值"+res.data.status)
+            if (res.data.status==0){
+              that.setData({
+                thirdSessionKey: temp
+              })         
+            }else{
+              wx.navigateTo({
+                url: '../login_page/login',
+              })
+            }
+          }
         })
-        console.log(res.data)
+
+        
       },
       fail: function(res) {
         wx.navigateTo({
@@ -41,7 +58,7 @@ Page({
       complete: function() {
         // console.log(that.data.note)
         if (that.data.note.length == 0) {
-          console.log("come in")
+          //console.log("come in")
           wx.request({
             url: 'http://localhost:8080/loadPhotos',
             data: {
