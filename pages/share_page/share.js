@@ -115,7 +115,8 @@ Page({
           that.setData({
             uploaderList: [],
             photoId: '',
-            introduce: ''
+            introduce: '',
+            uploaderNum: 0
           })
           console.log(that.data.photoId)
         } else {
