@@ -30,7 +30,8 @@ Page({
       success: function(res) {
         var temp = res.data;
         wx.request({
-          url: 'http://localhost:8080/uuidLogin',
+          //url: 'http://localhost:8080/uuidLogin',
+          url: 'https://www.xqdiary.top/sp/uuidLogin',
           data: {
             thirdSessionKey: temp
           },
@@ -60,7 +61,8 @@ Page({
         if (that.data.note.length == 0) {
           //console.log("come in")
           wx.request({
-            url: 'http://localhost:8080/loadPhotos',
+            //url: 'http://localhost:8080/loadPhotos',
+            url: 'https://www.xqdiary.top/sp/loadPhotos',
             data: {
               selectRow: that.data.selectRow,
               thirdSessionKey: ''
