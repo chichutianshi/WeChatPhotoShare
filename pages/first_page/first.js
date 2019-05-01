@@ -73,7 +73,7 @@ Page({
                 note: res.data,
                 selectRow: that.data.selectRow + 15
               })
-              console.log(that.data.selectRow)
+              // console.log(that.data.selectRow)
             },
 
             fail: (res) => {
@@ -116,7 +116,7 @@ Page({
     let that = this
     this.setData({
       note: '',
-      selectRow:0
+      selectRow: 0
     })
     wx.request({
       //url: 'http://localhost:8080/loadPhotos',
@@ -131,7 +131,7 @@ Page({
           note: res.data,
           selectRow: that.data.selectRow + 15
         })
-        console.log(that.data.selectRow)
+        // console.log(that.data.selectRow)
       },
 
       fail: (res) => {
@@ -153,9 +153,33 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-
+    wx.showLoading({
+      title: '加载中...',
+    })
+    this.loadMore()
   },
+  loadMore: function() {
+    let that = this
+    wx.request({
+      //url: 'http://localhost:8080/loadPhotos',
+      url: 'https://www.xqdiary.top/sp/loadPhotos',
+      data: {
+        selectRow: that.data.selectRow,
+        thirdSessionKey: ''
+      },
+      success: (res) => {
+        var newNote = that.data.note.concat(res.data)
+        console.log(newNote.length)
+        that.setData({
+          note:newNote
+        })
+        wx.hideLoading()
+      },
+      fail: (res) => {
 
+      }
+    })
+  },
   /**
    * 用户点击右上角分享
    */
