@@ -18,7 +18,6 @@
 
           <view class="item-title-box">
             <navigator url="url" class="item-title">{{item.instruction}}</navigator>
-            <!-- <image class="arrow" src="../../resources/arrow下拉.png"></image> -->
           </view>
 
           <view class="name">
@@ -41,7 +40,6 @@
 
           <view class="item-title-box">
             <navigator url="url" class="item-title">{{item.instruction}}</navigator>
-            <!-- <image class="arrow" src="../../resources/arrow下拉.png"></image> -->
           </view>
 
           <view class="name">

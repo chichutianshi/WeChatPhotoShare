@@ -3,7 +3,8 @@
     "pages/first_page/first",
     "pages/share_page/share",
     "pages/mine_page/mine",
-    "pages/login_page/login"
+    "pages/login_page/login",
+    "pages/remark_page/remark"
   ],
   "tabBar": {
     "color": "#dddddd",

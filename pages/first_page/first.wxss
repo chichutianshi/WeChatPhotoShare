@@ -87,7 +87,7 @@ page {
   width: 40rpx;
   height: 40rpx;
   margin-top: 2%;
-  border: 1rpx solid rgb(197, 180, 104);
+  /* border: 1rpx solid rgb(197, 180, 104); */
   border-radius: 30rpx;
 }
 
