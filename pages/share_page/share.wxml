@@ -37,7 +37,7 @@
         发布
       </button>
       <button class="btn_cancel" bindtap='clear'>
-        取消
+        重置
       </button>
     </view>
 
