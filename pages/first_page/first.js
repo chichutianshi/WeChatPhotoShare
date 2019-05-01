@@ -112,11 +112,41 @@ Page({
 
   },
 
+  reloadData: function() {
+    let that = this
+    this.setData({
+      note: '',
+      selectRow:0
+    })
+    wx.request({
+      //url: 'http://localhost:8080/loadPhotos',
+      url: 'https://www.xqdiary.top/sp/loadPhotos',
+      data: {
+        selectRow: that.data.selectRow,
+        thirdSessionKey: ''
+      },
+      success: (res) => {
+        console.log(res.data)
+        that.setData({
+          note: res.data,
+          selectRow: that.data.selectRow + 15
+        })
+        console.log(that.data.selectRow)
+      },
+
+      fail: (res) => {
+        console.log("请求失败!")
+      }
+    })
+  },
+
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-
+    console.log('onPullDownRefresh', '下拉刷新....');
+    this.reloadData()
+    wx.stopPullDownRefresh();
   },
 
   /**

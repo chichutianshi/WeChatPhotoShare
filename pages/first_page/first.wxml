@@ -9,7 +9,7 @@
     <view class='btn_search'>搜索</view>
   </view>
 
-  <scroll-view class="content">
+  <view class="content">
 
     <view class="left">
       <block wx:for="{{note}}" wx:key="">
@@ -57,5 +57,5 @@
         </view>
       </block>
     </view>
-  </scroll-view>
+  </view>
 </view>

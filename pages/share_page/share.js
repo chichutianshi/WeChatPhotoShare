@@ -68,6 +68,9 @@ Page({
   },
   //提交照片到服务器
   uploadpic: function(e) {
+    wx.showLoading({
+      title: '上传中....',
+    })
     var that = this
     let i = e.i ? e.i : 0
     let uploaderNum = that.data.uploaderNum
@@ -103,6 +106,7 @@ Page({
       complete: () => {
         i++
         if (i == uploaderNum) {
+          wx.hideLoading()
           wx.showToast({
             title: '上传成功',
             duration: 1500,
@@ -111,7 +115,8 @@ Page({
           that.setData({
             uploaderList: [],
             photoId: '',
-            introduce: ''
+            introduce: '',
+            uploaderNum: 0
           })
           console.log(that.data.photoId)
         } else {
