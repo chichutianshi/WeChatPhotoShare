@@ -31,16 +31,16 @@ Page({
         var temp = res.data;
         wx.request({
           url: 'http://localhost:8080/uuidLogin',
-          data:{
+          data: {
             thirdSessionKey: temp
           },
           success: (res) => {
             //console.log("状态值"+res.data.status)
-            if (res.data.status==0){
+            if (res.data.status == 0) {
               that.setData({
                 thirdSessionKey: temp
-              })         
-            }else{
+              })
+            } else {
               wx.navigateTo({
                 url: '../login_page/login',
               })
@@ -48,7 +48,7 @@ Page({
           }
         })
 
-        
+
       },
       fail: function(res) {
         wx.navigateTo({
@@ -87,7 +87,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-   
+
   },
   /**
    * 生命周期函数--监听页面显示
