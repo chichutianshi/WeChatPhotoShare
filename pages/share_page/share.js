@@ -130,7 +130,9 @@ Page({
     let that = this
     that.setData({
       uploaderList: [],
-      introduce: ''
+      introduce: '',
+      uploaderNum:0,
+      currentWordNumber:0
     })
   },
 
