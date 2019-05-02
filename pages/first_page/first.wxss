@@ -6,7 +6,6 @@ page {
 
 .whole {
   width: 100%;
-  /* background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255, 166, 0, 0.979)), to(rgb(253, 209, 127))); */
 }
 
 .top_search {
@@ -87,7 +86,7 @@ page {
   width: 40rpx;
   height: 40rpx;
   margin-top: 2%;
-  border: 1rpx solid rgb(197, 180, 104);
+  /* border: 1rpx solid rgb(197, 180, 104); */
   border-radius: 30rpx;
 }
 
@@ -119,11 +118,12 @@ page {
   overflow: hidden;
   font-family: 'PingFang SC-Medium';
   color: #1e1e1e;
-  margin-top: 10rpx;
-  margin-left: 15rpx;
-  margin-right: 15rpx;
-  margin-bottom: 15rpx;
-  line-height: 30rpx;
+  /* margin-top: 10rpx; */
+  padding-top: 1%;
+  margin-left: 5%;
+  /* margin-right: 15rpx; */
+  /* margin-bottom: 15rpx; */
+  line-height: 40rpx;
 }
 
 /* .name {

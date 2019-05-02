@@ -11,13 +11,14 @@ page {
 
 
 .share_top {
-  width: 82%;
-  height: 400rpx;
+  width: 90%;
+  height: 200rpx;
   margin-left: 8%;
   /* border: solid 1rpx red; */
+ 
   border-radius: 10rpx;
   padding-right: 1%;
-  background-color: white;
+  background-color: rgb(255, 184, 53);
 }
 
 ::-webkit-scrollbar {
@@ -32,28 +33,28 @@ page {
   padding-top: 3%;
   margin: 0 1%;
   box-sizing: border-box;
-  background-color: white;
+  background-color: rgb(255, 184, 53);
 }
 
 .ui_uploader_item {
   float: left;
   position: relative;
-  margin-left: 4%;
-  margin-right: 1%;
+  margin-left: 1%;
+  margin-right: 2%;
   margin-bottom: 25rpx;
-  width: 165rpx;
-  height: 165rpx;
+  width: 190rpx;
+  height: 190rpx;
 }
 
-.ui_uploader {
+.ui_uploader1 {
   float: left;
   position: relative;
-  margin-left: 4%;
-  margin-right: 1%;
+  margin-left: 1%;
+  margin-right: 2%;
   margin-bottom: 25rpx;
   /* padding-top: 3%; */
-  width: 165rpx;
-  height: 165rpx;
+  width: 190rpx;
+  height: 190rpx;
   border: 2rpx solid black;
   box-sizing: border-box;
 }
@@ -118,6 +119,7 @@ page {
 }
 
 .areas {
+  width: 90%;
   height: 152rpx;
   font-size: 30rpx;
   text-indent: 28rpx;

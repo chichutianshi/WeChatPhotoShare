@@ -1,5 +1,6 @@
 <view class="all">
-  <scroll-view class="share_top" scroll-y="true">
+
+  <view class="share_top" scroll-y="true">
     <view class='ui_uploader_cell'>
       <!-- 根据已选择的图片临时路径数组展示图片-->
       <view class='ui_uploader_item' wx:for="{{uploaderList}}" wx:key="{{index}}">
@@ -9,15 +10,16 @@
         <image bindtap='showImg' data-index="{{index}}" src='{{item}}'></image>
       </view>
       <!-- 上传按钮+框 -->
-      <view class='ui_uploader' bindtap='upload' wx:if="{{showUpload}}"></view>
+      <image class='ui_uploader1'  bindtap='upload' wx:if="{{showUpload}}" src='../../resources/camera.png'></image>
+      <!-- <view class='ui_uploader' bindtap='upload' wx:if="{{showUpload}}"></view> -->
     </view>
-  </scroll-view>
+  </view>
 
   <view class="take_color">
     <!-- <view class="describe">
       描述
     </view> -->
-    <image class="flower" src='../../resources/flower.png' mode="widthFix"></image>
+    <!-- <image class="flower" src='../../resources/flower.png' mode="widthFix"></image> -->
 
     <view class="conts">
       <textarea class="areas" id="description" placeholder="{{topic}}" value='{{introduce}}' maxlength="{{max}}" bindinput="inputs">

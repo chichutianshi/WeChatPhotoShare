@@ -17,8 +17,7 @@
           <image class="item-img" src="{{item.photoURL}}" mode="widthFix"></image>
 
           <view class="item-title-box">
-            <navigator url="url" class="item-title">{{item.instruction}}</navigator>
-            <!-- <image class="arrow" src="../../resources/arrow下拉.png"></image> -->
+            <a class="item-title">{{item.instruction}}</a>
           </view>
 
           <view class="name">
@@ -40,8 +39,7 @@
           <image class="item-img" src="{{item.photoURL}}" mode="widthFix"></image>
 
           <view class="item-title-box">
-            <navigator url="url" class="item-title">{{item.instruction}}</navigator>
-            <!-- <image class="arrow" src="../../resources/arrow下拉.png"></image> -->
+            <a class="item-title">{{item.instruction}}</a>
           </view>
 
           <view class="name">
