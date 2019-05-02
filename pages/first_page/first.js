@@ -9,8 +9,26 @@ Page({
     thirdSessionKey: ''
   },
 
-  loaddetail:function(e){
-    console.log(e.target.dataset.vid)
+  loaddetail: function(e) {
+    let index = e.target.dataset.vid
+    console.log(index)
+    if (index != undefined) {
+      wx.request({
+        url: 'https://www.xqdiary.top/sp/GetPhotoDetail',
+        data: {
+          photoId: this.data.note[index].photoId
+        },
+        success: (res) => {
+          console.log(res.data.photoUrls)
+          wx.navigateTo({
+            url: '../remark_page/remark?photoUrls=' + JSON.stringify(res.data.photoUrls) + "&photoId=" + this.data.note[index].photoId,
+          })
+        },
+        fail: (res) => {
+
+        }
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面加载
@@ -51,8 +69,6 @@ Page({
             }
           }
         })
-
-
       },
       fail: function(res) {
         wx.navigateTo({
@@ -171,8 +187,7 @@ Page({
         thirdSessionKey: ''
       },
       success: (res) => {
-        if(res.data!='')
-        {
+        if (res.data != '') {
           var newNote = that.data.note.concat(res.data)
           console.log(newNote.length)
           that.setData({
@@ -180,17 +195,15 @@ Page({
             selectRow: that.data.selectRow + 15
           })
           wx.hideLoading()
-        }
-        else
-        {
+        } else {
           wx.hideLoading()
           wx.showToast({
             icon: 'none',
             title: '到底了',
           })
         }
-        
-        
+
+
       },
       fail: (res) => {
 
@@ -203,5 +216,5 @@ Page({
   onShareAppMessage: function() {
 
   }
-  
+
 })
