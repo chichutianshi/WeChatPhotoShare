@@ -168,12 +168,26 @@ Page({
         thirdSessionKey: ''
       },
       success: (res) => {
-        var newNote = that.data.note.concat(res.data)
-        console.log(newNote.length)
-        that.setData({
-          note:newNote
-        })
-        wx.hideLoading()
+        if(res.data!='')
+        {
+          var newNote = that.data.note.concat(res.data)
+          console.log(newNote.length)
+          that.setData({
+            note: newNote,
+            selectRow: that.data.selectRow + 15
+          })
+          wx.hideLoading()
+        }
+        else
+        {
+          wx.hideLoading()
+          wx.showToast({
+            icon: 'none',
+            title: '到底了',
+          })
+        }
+        
+        
       },
       fail: (res) => {
 
