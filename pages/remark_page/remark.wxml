@@ -1,1 +1,69 @@
-<view class="setios">111</view>
+<view class="whole">
+  <view class="picture">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class="swipe_container" circular='{{circular}}'>
+      <block wx:for="{{imgUrls}}" wx:key="image">
+        <swiper-item>
+          <!-- 添加展示图片功能 -->
+          <image src="{{item}}" class="slide-image" mode="scaleToFill" bindtap='showImg' />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <view class="show_message">
+    <view class="outline">
+      <a class="describe">这是一个汽修图片dajfsajdjfsadsjgaj火山凤凰大街的首府喀山飞机按时打发回家</a>
+    </view>
+    <view class="author">
+      <image class="photo" src="../../resources/小白.jpg"></image>
+      <a class="nickname">小白</a>
+
+      <view class="heart_">
+        <image class="heart" src="../../resources/heart.png"></image>
+        <a class="num_heart">1</a>
+      </view>
+    </view>
+  </view>
+
+  <view class="conts">
+    <textarea class="areas" id="description" placeholder="{{topic}}" value='{{introduce}}' maxlength="{{max}}" bindinput="inputs">
+    </textarea>
+    <image class="convey" src="../../resources/sent.png"></image>
+  </view>
+
+  <view class="remark_whole">
+    <view class="remark_word">
+      评论
+    </view>
+    <!-- <block wx:for="{{note}}" wx:key=""> -->
+    <!-- 此为一条评论模板 -->
+    <view class="remark_1">
+      <view class="remark_1_author">
+        <image class="remark_1_photo" src="../../resources/艾莎.jpg"></image>
+        <a class="remark_1_nickname">艾莎</a>
+      </view>
+      <view class="remark_1_area">
+        <a class="remark_1_content">
+          圣诞快乐JFK飞机喀什地方就卡的距离喀什的
+        </a>
+      </view>
+      <!-- 子评论模板 -->
+      <!-- <block wx:for="{{note}}" wx:key=""> -->
+      <view class="remark_son">
+        <view class="remark_son_author">
+          <image class="remark_son_photo" src="../../resources/小白.jpg"></image>
+          <a class="remark_son_nickname">小白</a>
+        </view>
+        <view class="remark_son_area">
+          <a class="remark_son_content">
+            圣诞快乐JFK飞机喀什地方就卡的距离喀什的
+          </a>
+        </view>
+      </view>
+      <!-- </block> -->
+      <a class="show_more_remark" >展开 ></a>
+      <view class="line"></view>
+    </view>
+    <!-- </block> -->
+  </view>
+</view>

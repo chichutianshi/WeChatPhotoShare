@@ -17,7 +17,7 @@
           <image class="item-img" src="{{item.photoURL}}" mode="widthFix"></image>
 
           <view class="item-title-box">
-            <navigator url="url" class="item-title">{{item.instruction}}</navigator>
+            <a class="item-title">{{item.instruction}}</a>
           </view>
 
           <view class="name">
@@ -39,7 +39,7 @@
           <image class="item-img" src="{{item.photoURL}}" mode="widthFix"></image>
 
           <view class="item-title-box">
-            <navigator url="url" class="item-title">{{item.instruction}}</navigator>
+            <a class="item-title">{{item.instruction}}</a>
           </view>
 
           <view class="name">
