@@ -9,6 +9,9 @@ Page({
     thirdSessionKey: ''
   },
 
+  loaddetail:function(e){
+    console.log(e.target.dataset.vid)
+  },
   /**
    * 生命周期函数--监听页面加载
    */

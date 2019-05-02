@@ -13,11 +13,13 @@
 
     <view class="left">
       <block wx:for="{{note}}" wx:key="">
-        <view class="item" wx:if="{{index%2==0}}">
-          <image class="item-img" src="{{item.photoURL}}" mode="widthFix"></image>
+        <view class="item "   wx:if="{{index%2==0}}" >
+          
+          <image class="item-img" data-vid='{{index}}' src="{{item.photoURL}}" mode="widthFix" bindtap='loaddetail'></image>
 
-          <view class="item-title-box">
-            <a class="item-title">{{item.instruction}}</a>
+          <view class="item-title-box" data-vid='{{index}}' bindtap='loaddetail'>
+            
+            <a class="item-title" data-vid='{{index}}'>{{item.instruction}}</a>
           </view>
 
           <view class="name">
@@ -29,23 +31,19 @@
               <text>{{item.likeNum}}</text>
             </view>
           </view>
-
         </view>
       </block>
     </view>
     <view class="right">
       <block wx:for="{{note}}" wx:key="">
-        <view class="item" wx:if="{{index%2==1}}">
-          <image class="item-img" src="{{item.photoURL}}" mode="widthFix"></image>
-
-          <view class="item-title-box">
-            <a class="item-title">{{item.instruction}}</a>
+        <view class="item" wx:if="{{index%2==1}}" >  
+          <image class="item-img" data-vid='{{index}}' src="{{item.photoURL}}" mode="widthFix" bindtap='loaddetail'></image>
+          <view class="item-title-box"  bindtap='loaddetail'>
+            <a class="item-title" data-vid='{{index}}'>{{item.instruction}}</a>
           </view>
-
-          <view class="name">
+          <view class="name" >
             <image class="item-ava" src="{{item.avatarURL}}"></image>
             <text class="name-title">{{item.nickname}}</text>
-
             <view class="heart_">
               <image class="heart" src="../../resources/heart_grey.png"></image>
               <text>{{item.likeNum}}</text>
