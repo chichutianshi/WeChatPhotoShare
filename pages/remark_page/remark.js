@@ -4,11 +4,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    imgUrls: [    
-      'https://www.pcgamesn.com/wp-content/uploads/2018/08/SC2-Tychus-co-op-commander-580x334.jpg',
-      'https://www.areseia.com/wp-content/uploads/2018/07/Sc2-1024x576.png',
-      'https://static.starcraft2.com/dist/images/global/fb-share.jpg'
-    ],
+    imgUrls: [],
     indicatorDots: false,
     autoplay: true,
     interval: 3000,
@@ -28,7 +24,7 @@ Page({
   onLoad: function(options) {
     let Urls = JSON.parse(options.photoUrls)
     for (let i = 0; i < Urls.length; i++) {
-      Urls[i] = "https://www.xqdiary.top/loadPic/" + options.photoId+"/compress/"+Urls[i]
+      Urls[i] = "https://www.xqdiary.top/loadPic/" + options.photoId+"/"+Urls[i]
     }
     // console.log(Urls[0])
     this.setData({
@@ -88,7 +84,7 @@ Page({
 
   //展示图片
   previewImage: function (e) {
-    console.log(e.currentTarget.dataset.index);
+    // console.log(e.currentTarget.dataset.index)
     wx.previewImage({
       current: this.data.imgUrls[e.currentTarget.dataset.index],
       // 当前显示图片的http链接		  	
