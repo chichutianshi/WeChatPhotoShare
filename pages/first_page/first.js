@@ -9,6 +9,34 @@ Page({
     thirdSessionKey: ''
   },
 
+  increaseOrDeLike: function(e) {
+    let that = this
+    let notes = that.data.note
+    let note = notes[e.target.dataset.vid]
+    if (note.like == false) {
+      // console.log(e.target.dataset.vid)
+      if (e.target.dataset.vid != undefined) {
+        // console.log(note.likeNum)
+        note.likeNum = note.likeNum + 1
+        note.like=true
+        notes[e.target.dataset.vid] = note
+        that.setData({
+          note: notes,
+        })
+      }
+    } else {
+      if (e.target.dataset.vid != undefined) {
+        // console.log(note.likeNum)
+        note.likeNum = note.likeNum - 1
+        note.like = false
+        notes[e.target.dataset.vid] = note
+        that.setData({
+          note: notes,
+        })
+      }
+    }
+  },
+
   loaddetail: function(e) {
     let index = e.target.dataset.vid
     console.log(index)
@@ -88,6 +116,10 @@ Page({
             },
             success: (res) => {
               console.log(res.data)
+              let notes = res.data
+              for (let i = 0; i < notes.length; i++) {
+                notes[i].like = false
+              }
               that.setData({
                 note: res.data,
                 selectRow: that.data.selectRow + 15
@@ -145,9 +177,13 @@ Page({
         thirdSessionKey: ''
       },
       success: (res) => {
-        console.log(res.data)
+        let notes = res.data
+        for (let i = 0; i < notes.length; i++) {
+          notes[i].like = false
+        }
+        // console.log(res.data)
         that.setData({
-          note: res.data,
+          note: notes,
           selectRow: that.data.selectRow + 15
         })
         // console.log(that.data.selectRow)
@@ -188,7 +224,11 @@ Page({
       },
       success: (res) => {
         if (res.data != '') {
-          var newNote = that.data.note.concat(res.data)
+          let notes = res.data
+          for (let i = 0; i < notes.length; i++) {
+            notes[i].like = false
+          }
+          var newNote = that.data.note.concat(notes)
           console.log(newNote.length)
           that.setData({
             note: newNote,

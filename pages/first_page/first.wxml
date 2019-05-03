@@ -26,9 +26,10 @@
             <image class="item-ava" src="{{item.avatarURL}}"></image>
             <text class="name-title">{{item.nickname}}</text>
 
-            <view class="heart_">
-              <image class="heart" src="../../resources/heart_grey.png" bind></image>
-              <text>{{item.likeNum}}</text>
+            <view class="heart_" bindtap='increaseOrDeLike' data-vid='{{index}}'>
+              <image class="heart" wx:if="{{item.like==false}}" src="../../resources/heart_grey.png" data-vid='{{index}}'></image>
+              <image class="heart" wx:if="{{item.like==true}}" src="../../resources/heart.png" data-vid='{{index}}'></image>
+              <text data-vid='{{index}}'>{{item.likeNum}}</text>
             </view>
           </view>
         </view>
@@ -44,9 +45,10 @@
           <view class="name" >
             <image class="item-ava" src="{{item.avatarURL}}"></image>
             <text class="name-title">{{item.nickname}}</text>
-            <view class="heart_">
-              <image class="heart" src="../../resources/heart_grey.png"></image>
-              <text>{{item.likeNum}}</text>
+            <view class="heart_"bindtap='increaseOrDeLike' data-vid='{{index}}'>
+                      <image class="heart" wx:if="{{item.like==false}}" src="../../resources/heart_grey.png" data-vid='{{index}}'></image>
+              <image class="heart" wx:if="{{item.like==true}}" src="../../resources/heart.png" data-vid='{{index}}'></image>
+              <text data-vid='{{index}}'>{{item.likeNum}}</text>
             </view>
           </view>
 
