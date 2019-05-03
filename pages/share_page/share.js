@@ -36,6 +36,7 @@ Page({
   //展示图片
   showImg: function(e) {
     var that = this;
+    console.log(e.currentTarget.dataset.index);
     wx.previewImage({
       urls: that.data.uploaderList,
       current: that.data.uploaderList[e.currentTarget.dataset.index]

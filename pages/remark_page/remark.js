@@ -4,10 +4,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    imgUrls: [
-      '../../resources/sc.jpg',
-      '../../resources/zealot.png',
-      '../../resources/star_background.jpg'
+    imgUrls: [    
+      'https://www.pcgamesn.com/wp-content/uploads/2018/08/SC2-Tychus-co-op-commander-580x334.jpg',
+      'https://www.areseia.com/wp-content/uploads/2018/07/Sc2-1024x576.png',
+      'https://static.starcraft2.com/dist/images/global/fb-share.jpg'
     ],
     indicatorDots: false,
     autoplay: true,
@@ -83,6 +83,18 @@ Page({
    */
   onShareAppMessage: function() {
 
+
+  },
+
+  //展示图片
+  previewImage: function (e) {
+    console.log(e.currentTarget.dataset.index);
+    wx.previewImage({
+      current: this.data.imgUrls[e.currentTarget.dataset.index],
+      // 当前显示图片的http链接		  	
+      urls: this.data.imgUrls
+      // 需要预览的图片http链接列表		
+    })
   },
 
   inputs: function(e) {

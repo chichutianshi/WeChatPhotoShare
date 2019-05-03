@@ -1,8 +1,11 @@
-<view class="global">
+<!-- <view class="global"> -->
   <view class="top_view">
     <image src="{{avatarUrl}}" class="btn_image" bindtap="redirect"></image>
     <view class="take_name">
       <a class="btn_word" bindtap="redirect">{{nickname}}</a>
     </view>
   </view>
-</view>
+  <view class="quit">
+    <btn class="btn_quit">退出登录</btn>
+  </view>
+<!-- </view> -->

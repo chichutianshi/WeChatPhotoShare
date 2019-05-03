@@ -1,6 +1,6 @@
 <view class="all">
 
-  <view class="share_top" scroll-y="true">
+  <view class="share_top">
     <view class='ui_uploader_cell'>
       <!-- 根据已选择的图片临时路径数组展示图片-->
       <view class='ui_uploader_item' wx:for="{{uploaderList}}" wx:key="{{index}}">
@@ -16,15 +16,9 @@
   </view>
 
   <view class="take_color">
-    <!-- <view class="describe">
-      描述
-    </view> -->
-    <!-- <image class="flower" src='../../resources/flower.png' mode="widthFix"></image> -->
-
     <view class="conts">
       <textarea class="areas" id="description" placeholder="{{topic}}" value='{{introduce}}' maxlength="{{max}}" bindinput="inputs">
         <text class="currentWordNumber">{{currentWordNumber|0}}/{{max}}</text>
-        <!-- <text class="hint">{{texts}}</text> -->
       </textarea>
     </view>
 
