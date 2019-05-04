@@ -23,8 +23,8 @@
     </view>
 
     <view class="location">
-      <image class="btn_location" src='../../resources/location.png'></image>
-      <textarea class="show_location" disabled='true' auto-height='false' placeholder="吉林省长春市朝阳区长春理工大学">
+      <image class="btn_location" bindtap='getlocation' src='../../resources/location.png'></image>
+      <textarea class="show_location"  disabled='true' auto-height='false' placeholder='{{location}}'>
       </textarea>
     </view>
 

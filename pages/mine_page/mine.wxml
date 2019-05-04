@@ -24,4 +24,7 @@
 <view class="quit">
   <btn class="btn_quit">退出登录</btn>
 </view>
+
+  
+
 <!-- </view> -->

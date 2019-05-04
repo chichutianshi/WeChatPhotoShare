@@ -103,3 +103,12 @@ page {
   align-items: center;
   justify-content: center;
 }
+.btn_share {
+  /* background-color: rgb(255, 14, 14); */
+  font-size: 36rpx;
+  color: rgba(85, 70, 70, 0.678);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
