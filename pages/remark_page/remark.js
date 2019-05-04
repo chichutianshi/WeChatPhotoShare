@@ -14,22 +14,35 @@ Page({
     currentTab: 0,
     showLoading: true,
     topic: '添加评论...',
-    introduce: '',
-    max: 500
+    intruction: '',
+    max: 500,
+    avatarURL:'',
+    nickname:'',
+    likeNum:'',
+    islike:'',
+    photoId:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    // console.log(options.introduce)
     let Urls = JSON.parse(options.photoUrls)
     for (let i = 0; i < Urls.length; i++) {
       Urls[i] = "https://www.xqdiary.top/loadPic/" + options.photoId+"/"+Urls[i]
     }
     // console.log(Urls[0])
     this.setData({
-      imgUrls: Urls
+      imgUrls: Urls,
+      intruction:options.introduce,
+      avatarURL:options.avatarURL,
+      nickname: options.nickname,
+      likeNum:options.likeNum,
+      islike:options.like,
+      photoId:options.photoId
     })
+    console.log(options.like)
   },
 
   /**

@@ -12,15 +12,16 @@
 
   <view class="show_message">
     <view class="outline">
-      <a class="describe">这是一个汽修图片dajfsajdjfsadsjgaj火山凤凰大街的首府喀山飞机按时打发回家</a>
+      <a class="describe">{{intruction}}</a>
     </view>
     <view class="author">
-      <image class="photo" src="../../resources/white.jpg"></image>
-      <a class="nickname">小白</a>
+      <image class="photo" src="{{avatarURL}}"></image>
+      <a class="nickname">{{nickname}}</a>
 
       <view class="heart_">
-        <image class="heart" src="../../resources/heart.png"></image>
-        <a class="num_heart">1</a>
+        <image class="heart" wx:if="{{islike}}" src="../../resources/heart.png"></image>
+        <image class="heart" wx:else src="../../resources/heart_grey.png"></image>
+        <a class="num_heart">{{likeNum}}</a>
       </view>
     </view>
   </view>
