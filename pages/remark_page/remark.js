@@ -4,6 +4,74 @@ Page({
    * 页面的初始数据
    */
   data: {
+    text: '\n',
+    mainComments: [
+      { 
+        avatarUrl:"http://vpic.video.qq.com/19254956/m0017iz4vuk_ori_1.jpg",
+        nickname:"艾莎",
+        comment:"骄傲的法拉第哈德公交卡大家嘎斯角度来讲打开了放假啊十点零分ioooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo"
+      },
+      {
+        avatarUrl: "http://vpic.video.qq.com/19254956/m0017iz4vuk_ori_1.jpg",
+        nickname: "小白",
+        comment: "骄傲的法按时打发角度来讲打开了放啊大厦的噶多噶分"
+      },
+      {
+        avatarUrl: "http://vpic.video.qq.com/19254956/m0017iz4vuk_ori_1.jpg",
+        nickname: "小白",
+        comment: "骄傲的法按时打发角度来讲打开了放啊大厦的噶多噶分"
+      },
+      {
+        avatarUrl: "http://vpic.video.qq.com/19254956/m0017iz4vuk_ori_1.jpg",
+        nickname: "小白",
+        comment: "骄傲的法按时打发角度来讲打开了放啊大厦的噶多噶分"
+      },
+      {
+        avatarUrl: "http://vpic.video.qq.com/19254956/m0017iz4vuk_ori_1.jpg",
+        nickname: "小白",
+        comment: "骄傲的法按时打发角度来讲打开了放啊大厦的噶多噶分"
+      },
+      {
+        avatarUrl: "http://vpic.video.qq.com/19254956/m0017iz4vuk_ori_1.jpg",
+        nickname: "小白",
+        comment: "骄傲的法按时打发角度来讲打开了放啊大厦的噶多噶分"
+      },
+      {
+        avatarUrl: "http://vpic.video.qq.com/19254956/m0017iz4vuk_ori_1.jpg",
+        nickname: "小白",
+        comment: "骄傲的法按时打发角度来讲打开了放啊大厦的噶多噶分"
+      },
+      {
+        avatarUrl: "http://vpic.video.qq.com/19254956/m0017iz4vuk_ori_1.jpg",
+        nickname: "艾莎",
+        comment: "骄傲的法拉第哈德公交卡大家嘎斯角度来讲打开了放假啊十点零分ioooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo"
+      },
+      {
+        avatarUrl: "http://vpic.video.qq.com/19254956/m0017iz4vuk_ori_1.jpg",
+        nickname: "小白",
+        comment: "骄傲的法按时打发角度来讲打开了放啊大厦的噶多噶分"
+      },
+      {
+        avatarUrl: "http://vpic.video.qq.com/19254956/m0017iz4vuk_ori_1.jpg",
+        nickname: "艾莎",
+        comment: "骄傲的法拉第哈德公交卡大家嘎斯角度来讲打开了放假啊十点零分ioooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo"
+      },
+      {
+        avatarUrl: "http://vpic.video.qq.com/19254956/m0017iz4vuk_ori_1.jpg",
+        nickname: "小白",
+        comment: "骄傲的法按时打发角度来讲打开了放啊大厦的噶多噶分"
+      },
+      {
+        avatarUrl: "http://vpic.video.qq.com/19254956/m0017iz4vuk_ori_1.jpg",
+        nickname: "艾莎",
+        comment: "骄傲的法拉第哈德公交卡大家嘎斯角度来讲打开了放假啊十点零分ioooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo"
+      },
+      {
+        avatarUrl: "http://vpic.video.qq.com/19254956/m0017iz4vuk_ori_1.jpg",
+        nickname: "艾莎",
+        comment: "骄傲的法拉第哈德公交卡大家嘎斯角度来讲打开了放假啊十点零分ioooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo"
+      }
+    ],
     imgUrls: [],
     indicatorDots: false,
     autoplay: true,
@@ -93,6 +161,12 @@ Page({
   onShareAppMessage: function() {
 
 
+  },
+
+  to_commit:function(e){
+    wx.navigateTo({
+      url: '../sonRemark_page/sonRemark',
+    })
   },
 
   //展示图片

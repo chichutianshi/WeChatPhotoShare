@@ -4,7 +4,9 @@
     "pages/share_page/share",
     "pages/mine_page/mine",
     "pages/login_page/login",
-    "pages/remark_page/remark"
+    "pages/remark_page/remark",
+    "pages/publish_page/publish",
+    "pages/sonRemark_page/sonRemark"
   ],
   "tabBar": {
     "color": "#dddddd",

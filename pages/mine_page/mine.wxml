@@ -7,13 +7,13 @@
 </view>
 
 <view class="mine_functions">
-  <view class="mine_message">
+  <view class="mine_message" >
     <view class="my_message">
       个人信息
     </view>
     <image class="point_right" src="../../resources/point_right.png"></image>
   </view>
-  <view class="mine_publish">
+  <view class="mine_publish" bindtap='to_publish'>
     <view class="my_publish">
       我的发布
     </view>

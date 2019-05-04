@@ -5,7 +5,7 @@ Page({
    */
   data:   {
     avatarUrl: '../../resources/mine_green.jpg',
-    nickname:'授权登陆',
+    nickname:'授权登陆'
   },
 
   /**
@@ -84,6 +84,13 @@ Page({
   onShareAppMessage: function () {
     
   },
+
+  to_publish:function(){
+    wx.navigateTo({
+      url: '../publish_page/publish',
+    })
+  },
+
   redirect:function(){
     wx.getStorage({
       key: 'thirdSessionKey',
