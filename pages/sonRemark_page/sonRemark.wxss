@@ -11,10 +11,10 @@ page {
   height: auto;
 }
 
-.remark_word{
+/* .remark_word{
   margin-left: 4%;
   font-weight: bold;
-}
+} */
 
 /* .remark_1 {
   border: 1rpx solid rgb(197, 180, 104); 
@@ -24,7 +24,9 @@ page {
   border-bottom: 1px solid #ccc;
   padding-bottom: 2%;
   width: 96%;
-  margin: 0 2%;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-top: -2%;
 }
 
 .remark_1_author {
@@ -34,12 +36,29 @@ page {
 }
 
 .remark_1_photo {
-  width: 80rpx;
-  height: 80rpx;
+  width: 100rpx;
+  height: 100rpx;
   margin-top: 2%;
   /* margin-bottom: 2%; */
-  margin-left: 4%;
+  margin-left: 2%;
   border-radius: 50rpx;
+}
+
+.nameTime{
+  /* border: 1rpx solid blue; */
+  margin-left: 3%;
+  margin-top: 3%;
+  margin-bottom: 2%;
+}
+
+.remark_1_nickname {
+  margin-left: 4%;
+  font-size: 38rpx;
+}
+
+.publish_time {
+  font-size: 25rpx;
+  color: rgb(102, 102, 102);
 }
 
 .remark_1_nickname {
@@ -64,8 +83,10 @@ page {
 
 .remark_son{
   /* border: 1rpx solid red; */
-  margin-top: 3%;
+  margin-top: 2%;
   margin-left: 13%;
+  margin-right: 3%;
+  /* padding-bottom: 2%; */
 }
 
 .remark_son_author {
@@ -93,8 +114,10 @@ page {
   width: 80%;
   margin-left: 18%;
   margin-right: 2%;
+  padding-bottom: 4%;
   display: flex;
   align-items: center;
+  border-bottom: 1px solid #ccc;
   /* border: 1rpx solid red; */
 }
 
@@ -106,14 +129,6 @@ page {
   color: rgb(102, 102, 102);
   font-size: 30rpx;
   margin-left: 17%;
-}
-
-.line{
-  border: solid #eee thin;
-  margin-top: 2%;
-  width: 79%;
-  margin-left: 16%;
-  margin-right: 3%;
 }
 
 .useColor{

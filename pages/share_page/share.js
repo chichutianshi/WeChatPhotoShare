@@ -12,7 +12,7 @@ Page({
     topic: '写下你的想法，和大家一起分享吧！',
     thirdSessionKey: '',
     introduce: '',
-    location: '',
+    location: '点击左侧分享你的位置',
     photoId: '',
   },
 

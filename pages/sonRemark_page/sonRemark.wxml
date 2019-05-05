@@ -1,14 +1,18 @@
 <view class="remark_whole">
-  <view class="remark_word">
+  <!-- <view class="remark_word">
     评论
-  </view>
+  </view> -->
   <!-- <block wx:for="{{mainComments}}" wx:key=""> -->
   <!-- 此为一条评论模板 -->
   <view class="remark_1" bindtap='to_commit'>
     <view class="gotLine">
       <view class="remark_1_author">
         <image class="remark_1_photo" src="../../resources/Ashe.jpg"></image>
-        <a class="remark_1_nickname">艾莎</a>
+        <view class="nameTime">
+          <a class="remark_1_nickname">艾莎</a>
+          <text>{{text}}</text>
+          <a class="publish_time">2019/5/4 17:03</a>
+        </view>
       </view>
       <view class="remark_1_area">
         <a class="remark_1_content">
@@ -21,7 +25,11 @@
       <view class="remark_son">
         <view class="remark_son_author">
           <image class="remark_son_photo" src="{{item.avatarUrl}}"></image>
-          <a class="remark_son_nickname">{{item.nickname}}</a>
+          <view class="nameTime">
+            <a class="remark_son_nickname">{{item.nickname}}</a>
+            <text>{{text}}</text>
+            <a class="publish_time">2019/5/4 17:03</a>
+          </view>
         </view>
         <view class="remark_son_area">
           <a class="remark_son_content">
@@ -30,7 +38,6 @@
         </view>
       </view>
     </block>
-    <view class="line"></view>
   </view>
   <!-- </block> -->
   <text>{{text}}</text>

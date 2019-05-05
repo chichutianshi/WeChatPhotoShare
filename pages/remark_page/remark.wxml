@@ -40,10 +40,18 @@
     </view>
     <block wx:for="{{mainComments}}" wx:key="">
       <!-- 此为一条评论模板 -->
-      <view class="remark_1" bindtap='to_commit'>
+      <view class="remark_1">
         <view class="remark_1_author">
           <image class="remark_1_photo" src="{{item.avatarUrl}}"></image>
-          <a class="remark_1_nickname">{{item.nickname}}</a>
+          <view class="nameTime">
+            <a class="remark_1_nickname">{{item.nickname}}</a>
+            <text>{{text}}</text>
+            <a class="publish_time">2019/5/4 17:03</a>
+          </view>
+          <view class="remark_iconArea" bindtap='to_commit'>
+            <image class="remark_icon" src="../../resources/comments.png"></image>
+            <a class="comments_num">3</a>
+          </view>
         </view>
         <view class="remark_1_area">
           <a class="remark_1_content">
@@ -65,7 +73,6 @@
       </view> -->
         <!-- </block> -->
         <!-- <a class="show_more_remark" >展开 ></a> -->
-        <view class="line"></view>
       </view>
     </block>
     <text>{{text}}</text>
