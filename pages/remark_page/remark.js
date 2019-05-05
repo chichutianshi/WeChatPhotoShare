@@ -98,8 +98,8 @@ Page({
     // console.log(options.introduce)
     let Urls = JSON.parse(options.photoUrls)
     for (let i = 0; i < Urls.length; i++) {
-      //Urls[i] = "https://www.xqdiary.top/loadPic/" + options.photoId+"/"+Urls[i]
-      Urls[i] = "http://localhost:8080/loadPic/" + options.photoId + "/" + Urls[i]
+      Urls[i] = "https://www.xqdiary.top/loadPic/" + options.photoId+"/"+Urls[i]
+     // Urls[i] = "http://localhost:8080/loadPic/" + options.photoId + "/" + Urls[i]
     }
     // console.log(Urls[0])
     this.setData({
