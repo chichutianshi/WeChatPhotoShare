@@ -132,76 +132,88 @@ Page({
   //提交照片到服务器
   uploadpic: function(e) {
     var that = this
-    if(that.data.uploaderNum!=0)
-    {
-      wx.showLoading({
-        title: '上传中....',
-      })
-      let i = e.i ? e.i : 0
-      let uploaderNum = that.data.uploaderNum
-      wx.uploadFile({
-        //url: 'http://localhost:8080/fileCtrl/upPicture',
-        url: 'https://www.xqdiary.top/sp/fileCtrl/upPicture',
-        filePath: that.data.uploaderList[i],
-        name: 'pic',
-        header: {
-          "Content-Type": "multipart/form-data",
-        },
-        formData: {
-          'thirdSessionKey': that.data.thirdSessionKey,
-          'introduce': that.data.introduce,
-          'photoId': that.data.photoId,
-          'location':that.data.location,
-          'categories': ''
-        },
-        success: (res) => {
-          var obj = JSON.parse(res.data)
-          if (obj["photoId"] != null && obj["photoId"] != "") {
-            that.setData({
-              photoId: obj["photoId"]
-            })
-            console.log("设置成功")
-          }
-          if (obj["status"] == -1) {
-            console.log("faii")
-          }
-        },
-        fail: (res) => {
+    wx.getStorage({
+      key: 'thirdSessionKey',
+      success: function(res) {
+        if (that.data.uploaderNum != 0) {
+          wx.showLoading({
+            title: '上传中....',
+          })
+          let i = e.i ? e.i : 0
+          let uploaderNum = that.data.uploaderNum
+          wx.uploadFile({
+            url: 'http://localhost:8080/fileCtrl/upPicture',
+            //url: 'https://www.xqdiary.top/sp/fileCtrl/upPicture',
+            filePath: that.data.uploaderList[i],
+            name: 'pic',
+            header: {
+              "Content-Type": "multipart/form-data",
+            },
+            formData: {
+              'thirdSessionKey': that.data.thirdSessionKey,
+              'introduce': that.data.introduce,
+              'photoId': that.data.photoId,
+              'location': that.data.location,
+              'categories': ''
+            },
+            success: (res) => {
+              var obj = JSON.parse(res.data)
+              if (obj["photoId"] != null && obj["photoId"] != "") {
+                that.setData({
+                  photoId: obj["photoId"]
+                })
+                console.log("设置成功")
+              }
+              if (obj["status"] == -1) {
+                console.log("faii")
+              }
+            },
+            fail: (res) => {
 
-        },
-        complete: () => {
-          i++
-          if (i == uploaderNum) {
-            wx.hideLoading()
-            wx.showToast({
-              title: '上传成功',
-              duration: 1500,
-              mask: 'false'
-            })
-            that.setData({
-              uploaderList: [],
-              photoId: '',
-              introduce: '',
-              uploaderNum: 0,
-              currentWordNumber:0,
-              showUpload: true,
-            })
-            console.log(that.data.photoId)
-          } else {
-            e.i = i
-            that.uploadpic(e)
-          }
+            },
+            complete: () => {
+              i++
+              if (i == uploaderNum) {
+                wx.hideLoading()
+                wx.showToast({
+                  title: '上传成功',
+                  duration: 1500,
+                  mask: 'false'
+                })
+                that.setData({
+                  uploaderList: [],
+                  photoId: '',
+                  introduce: '',
+                  uploaderNum: 0,
+                  currentWordNumber: 0,
+                  showUpload: true,
+                })
+                console.log(that.data.photoId)
+              } else {
+                e.i = i
+                that.uploadpic(e)
+              }
+            }
+          })
         }
-      })
-    }
-    else
-    {
-      wx.showToast({
-        title: '请选择图片',
-        icon:"none",
-        duration: 1500
-      })
-    }
+        else {
+          wx.showToast({
+            title: '请选择图片',
+            icon: "none",
+            duration: 1500
+          })
+        }
+      },
+      fail:function(){
+        wx.showToast({
+          title: '你还没有登陆',
+          icon:"none",
+          duration: 1500
+        })
+      }
+    })
+    
+    
     
   },
   clear: function(e) {

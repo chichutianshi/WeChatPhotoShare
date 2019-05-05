@@ -5,7 +5,8 @@ Page({
    */
   data:   {
     avatarUrl: '../../resources/mine_green.jpg',
-    nickname:'授权登陆'
+    nickname:'授权登陆',
+    thirdSessionKey:''
   },
 
   /**
@@ -14,18 +15,25 @@ Page({
   onLoad: function (options) {
     var that=this;
     wx.getStorage({
-      key: 'rawData',
+      key: 'thirdSessionKey',
       success: function (res) {
-        var obj = JSON.parse(res.data)
-        url = obj['avatarUrl']
-        // console.log(url)
-        that.setData({ avatarUrl: url,
-          nickname: obj['nickName'] });
-      },
-      fail: function (res) {
-        console.log("unlogin")
-      }
+        wx.getStorage({
+          key: 'rawData',
+          success: function (res) {
+            var obj = JSON.parse(res.data)
+            url = obj['avatarUrl']
+            // console.log(url)
+            that.setData({
+              avatarUrl: url,
+              nickname: obj['nickName']
+            });
+          },
+          fail: function (res) {
+            console.log("unlogin")
+          }
+        })},
     })
+    
 
     // if(url!=null&&url!="")
     // {
@@ -102,6 +110,54 @@ Page({
           url: '../login_page/login',
         })
       }
+    })
+  },
+
+  outLogin:function(e){
+    var that=this
+    wx.getStorage({
+      key: 'thirdSessionKey',
+      success: function(res) {
+        wx.request({
+          url: 'http://localhost:8080/outLogin',
+          data:{
+            thirdSessionKey:res.data
+          },
+          success:function(res){
+            if(res.data==1){
+              wx.removeStorage({
+                key: 'thirdSessionKey',
+                success: function(res) {
+                  wx.removeStorage({
+                    key: 'rawData',
+                    success: function(res) {},
+                  })
+                  that.setData({
+                    avatarUrl: '../../resources/mine_green.jpg',
+                    nickname: '授权登陆',
+                  })
+                  wx.showToast({
+                    title: '退出成功',
+                    icon:"success"
+                  })
+                },
+                fail:function(){
+                  wx.showToast({
+                    title: '退出失败',
+                    icon: "success"
+                  })
+                }
+              })
+            }
+          },
+          fail:function(){
+            wx.showToast({
+              title: '退出失败',
+              icon: "success"
+            })
+          }
+        })
+      },
     })
   }
 })

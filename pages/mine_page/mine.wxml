@@ -22,7 +22,7 @@
 </view>
 
 <view class="quit">
-  <btn class="btn_quit">退出登录</btn>
+  <btn class="btn_quit" bindtap="outLogin">退出登录</btn>
 </view>
 
   

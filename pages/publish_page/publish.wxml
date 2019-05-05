@@ -6,39 +6,42 @@
 <view class="all_publish">
   <!-- <block wx:for="{{note}}" wx:key=""> -->
   <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{items}}" wx:key="">
-    <view class="content">
-      <!-- {{item.content}} -->
+    <view class="content" data-photoid='{{item.photoid}}' data-index="{{index}}" bindtap='previewImage'>
+    <!-- star -->
 
       <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class="swipe_container" circular='{{circular}}'>
-        <block wx:for="{{imgUrls}}" wx:key="image">
+        <block wx:for="{{item.imgUrls}}" wx:key="image">
           <swiper-item>
             <!-- 添加展示图片功能 -->
-            <image src="{{item}}" class="slide-image" mode="widthFix" bindtap='previewImage' />
+            <image src="{{item}}" class="slide-image" mode="widthFix"  />
           </swiper-item>
         </block>
       </swiper>
       <!-- 显示头像\姓名\描述 -->
       <view class="show_message">
         <view class="outline">
-          <a class="describe">星际争霸2魔兽争霸魔兽世界为了联盟 为了部落 Lorkata Orga</a>
+          <a class="describe">{{item.instruction}}</a>
         </view>
         <view class="author">
-          <image class="photo" src="../../resources/white.jpg"></image>
+          <image class="photo" src="{{item.avatarURL}}"></image>
           <view class="name_time">
-            <a class="nickname">小白</a>
+            <a class="nickname">{{item.nickname}}</a>
             <text>{{text}}</text>
-            <a class="publish_time">2019/5/4 17:03</a>
+            <a class="publish_time">{{item.createTime}}</a>
           </view>
 
           <view class="heart_">
             <image class="heart" src="../../resources/heart.png"></image>
-            <a class="num_heart">1</a>
+            <a class="num_heart">{{item.likeNum}}</a>
           </view>
         </view>
       </view>
-    </view>
 
-    <view class="del" catchtap="del" data-index="{{index}}">删除</view>
+
+
+    </view> 
+    <!-- end -->
+    <view class="del" catchtap="del" data-photoid='{{item.photoid}}' data-index="{{index}}">删除</view>
   </view>
   <!-- </block> -->
 </view>
